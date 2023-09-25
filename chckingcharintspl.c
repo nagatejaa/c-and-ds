@@ -36,5 +36,5 @@ int function(){
 
 int main(){
     function();
-   	return 0 ;
+    return 0 ;
 }
