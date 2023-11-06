@@ -1,10 +1,16 @@
 #include <stdio.h>
 void toh(int,int,char,char,char);
-int main(){
+void
+
+
+ main(int argc, char *argv[]){
 	int n,d = 1;
-	printf("ENTER NUMBER OF DISC ON SOURCE TOWER : ");
-	scanf("%d",&n);
+	if(argc != 2){
+	printf("ENTER ENOUGH ARGUMENTS!!");}
+	else{
+	n = atoi(argv[1]);
 	toh(d,n,'A','B','C');
+	}
 }
 void toh(int d,int n, char sour , char aux, char dest){
 	static int step;
