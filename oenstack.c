@@ -69,24 +69,12 @@ int main() {
             case 1:
                 push();
                 break;
-            case 2:
-                pop();
-                break;
-            case 3:
-                peek();
-                break;
-            case 5:
-                reverse();
-                break;
-            case 4:
-                display();
-                break;
-            case 0:
-                printf("ENDING THE PROGRAMME :)");
-                break;
-            default:
-                printf("Invalid\n");
-                printf("Choose only from given menu\n");
+            case 2:pop();break;
+            case 3:peek();break;
+            case 5:reverse();break;
+            case 4:display();break;
+            case 0:printf("ENDING THE PROGRAMME :)\n");break;
+            default:printf("Invalid\nChoose only from given menu\n");
         }
     } while (ch != 0);
 
