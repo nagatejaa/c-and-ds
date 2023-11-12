@@ -1,66 +1,94 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define n 5
-int stack[n];
-int top = -1;
-int i;
+int top = -1, stack[n];
 
-void push(){
+void push() {
     int x;
-    printf("Enter element : ");
-    scanf("%d",&x);
-    if(top == n-1){
-        printf("overflow");
-    }
-    else{
+    if (top == n - 1) {
+        printf("OVERFLOW\n");
+    } else {
+        printf("Enter the value to be pushed : ");
+        scanf("%d", &x);
         top++;
         stack[top] = x;
     }
 }
 
-void pop(){
+void pop() {
     int item;
-    if(top == -1){
-        printf("Underflow");
-    }
-    else{
+    if (top == -1) {
+        printf("UNDERFLOW\n");
+    } else {
         item = stack[top];
         top--;
-        printf("%d",item);
+        printf("The poped value is : %d\n", item);
     }
 }
 
-void peek(){
-    if(top == -1){
-        printf("Empty stack");
-    }
-    else{
-        printf("%d",stack[top]);
-    }
-}
-
-void display(){
-    for(i = top; i >=0 ; i--){
-        printf("%d ",stack[i]);
-        printf("\n");
+void peek() {
+    if (top == -1) {
+        printf("Stack is Empty\n");
+    } else {
+        printf("The top value of stack is : %d\n", stack[top]);
     }
 }
 
-int main(){
+void display() {
+    if (top == -1) {
+        printf("Stack is Empty\n");
+    } else {
+    printf("Stack in ACTUAL order is : ");
+    for (int i = top; i >= 0; i--) {
+        printf("%d ", stack[i]);
+    }
+    printf("\n");
+    }
+}
+
+void reverse() {
+    if (top == -1) {
+        printf("Stack is Empty\n");
+    } else {
+    printf("Stack in REVERSE order is : ");
+    for (int i = 0; i <= top; i++) {
+        printf("%d ", stack[i]);
+    }
+    printf("\n");
+    }
+}
+
+int main() {
     int ch;
-    do{
-    
-        printf("\n*****MENU*****");
-        printf("\nEnter choice \n 1 : Push \n 2 : Pop \n 3 : Peek \n 4 : Display \n");
-        scanf("%d",&ch);
-        switch(ch){
-            case 1 : push(); break;
-            case 2 : pop(); break;
-            case 3 : peek(); break;
-            case 4 : display(); break;
-            default: printf("Invalid");
+    do {
+        printf("\n******MENU******");
+        printf("\n0 : EXIT\n1 : PUSH \n2 : POP \n3 : PEEK\n4 : DISPLAY IN SAME ORDER\n5 : DISPLAY IN REVERSE ORDER\nEnter your choice : ");
+        scanf("%d", &ch);
+        printf("\n");
+        switch (ch) {
+            case 1:
+                push();
+                break;
+            case 2:
+                pop();
+                break;
+            case 3:
+                peek();
+                break;
+            case 5:
+                reverse();
+                break;
+            case 4:
+                display();
+                break;
+            case 0:
+                printf("ENDING THE PROGRAMME :)");
+                break;
+            default:
+                printf("Invalid\n");
+                printf("Choose only from given menu\n");
         }
-    } while(ch!=0);
+    } while (ch != 0);
+
     return 0;
 }
-
